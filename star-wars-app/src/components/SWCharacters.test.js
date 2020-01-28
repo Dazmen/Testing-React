@@ -16,10 +16,10 @@ test('renders character list and async functions work properly', async () => {
     previous: 'previous test url',
 })
 
-    const { getByText, findByText } = render(<StarWarsCharacters />);
+    const { getByText } = render(<StarWarsCharacters />);
 
-    // const previousButton = getByText(/previous/i);
-    // fireEvent.click(previousButton)
+    const previousButton = getByText(/previous/i);
+    fireEvent.click(previousButton)
 
     const nextButton = getByText(/next/i);
     fireEvent.click(nextButton)
@@ -28,5 +28,4 @@ test('renders character list and async functions work properly', async () => {
 
     await wait(() => expect(getByText(/luke/i)))
 
-    // expect(findByText(/test/i).toContain())
 })
